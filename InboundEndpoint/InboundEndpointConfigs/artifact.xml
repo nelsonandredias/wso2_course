@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="DictionaryAPI" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/DictionaryAPI.xml</file>
+    </artifact>
+    <artifact name="ExposeRestApiIEP" groupId="com.example.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/ExposeRestApiIEP.xml</file>
+    </artifact>
+    <artifact name="Sequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Sequence.xml</file>
+    </artifact>
+    <artifact name="HttpTestIEP" groupId="com.example.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/HttpTestIEP.xml</file>
+    </artifact>
+    <artifact name="DictionaryApiEP" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/DictionaryApiEP.xml</file>
+    </artifact>
+    <artifact name="SequenceIN" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SequenceIN.xml</file>
+    </artifact>
+    <artifact name="SequenceOUT" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SequenceOUT.xml</file>
+    </artifact>
+    <artifact name="CSVDataFileProcessSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/CSVDataFileProcessSeq.xml</file>
+    </artifact>
+    <artifact name="XMLDataFileProcessSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/XMLDataFileProcessSeq.xml</file>
+    </artifact>
+    <artifact name="JSONDataFileProcessSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/JSONDataFileProcessSeq.xml</file>
+    </artifact>
+    <artifact name="ErrorProcessSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/ErrorProcessSeq.xml</file>
+    </artifact>
+    <artifact name="CSVDataFileProcessIEP" groupId="com.example.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/CSVDataFileProcessIEP.xml</file>
+    </artifact>
+    <artifact name="XMLDataFileProcessIEP" groupId="com.example.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/XMLDataFileProcessIEP.xml</file>
+    </artifact>
+    <artifact name="JSONDataFileProcessIEP" groupId="com.example.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/JSONDataFileProcessIEP.xml</file>
+    </artifact>
+</artifacts>

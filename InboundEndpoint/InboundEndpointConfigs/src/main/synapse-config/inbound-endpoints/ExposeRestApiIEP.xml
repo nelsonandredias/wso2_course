@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inboundEndpoint name="ExposeRestApiIEP" protocol="http" sequence="Sequence" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+    <parameters>
+        <parameter name="inbound.http.port">8285</parameter>
+        <parameter name="inbound.worker.pool.size.core">400</parameter>
+        <parameter name="inbound.worker.pool.size.max">500</parameter>
+        <parameter name="inbound.worker.thread.keep.alive.sec">60</parameter>
+        <parameter name="inbound.worker.pool.queue.length">-1</parameter>
+        <parameter name="inbound.thread.id">PassThroughInboundWorkerPool</parameter>
+        <parameter name="dispatch.filter.pattern">/api/dictionary/.*</parameter>
+    </parameters>
+</inboundEndpoint>

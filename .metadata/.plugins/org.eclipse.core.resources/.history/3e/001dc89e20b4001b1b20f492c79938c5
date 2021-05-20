@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/email" name="EmailAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/send">
+        <inSequence>
+            <log description="LOG START" level="custom">
+                <property name="LOG MESSAGE" value="LOG START SEND"/>
+            </log>
+            <email.send configKey="smtpconnection">
+                <from>{json-eval($.from)}</from>
+                <to>{json-eval($.to)}</to>
+                <subject>{json-eval($.subject)}</subject>
+                <content>{json-eval($.content)}</content>
+                <contentType>{json-eval($.contentType)}</contentType>
+            </email.send>
+            <respond description="SEND OUT RESPONSE"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

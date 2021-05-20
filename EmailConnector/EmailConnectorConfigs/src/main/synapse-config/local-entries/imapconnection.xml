@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<localEntry xmlns="http://ws.apache.org/ns/synapse" key="imapconnection">
+    <email.init>
+        <connectionType>IMAP</connectionType>
+        <password>54321testwso2</password>
+        <host>imap.gmail.com</host>
+        <port>993</port>
+        <name>imapconnection</name>
+        <username>wso2test12345@gmail.com</username>
+    </email.init>
+</localEntry>

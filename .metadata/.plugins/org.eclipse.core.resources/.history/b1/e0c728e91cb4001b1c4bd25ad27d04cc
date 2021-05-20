@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="logErrorHandlerSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG FULL ERROR" level="custom">
+        <property name="text" value="An unexpected error occured"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="message"/>
+        <property expression="get-property('ERROR_CODE')" name="code"/>
+        <property expression="get-property('ERROR_DETAIL')" name="detail"/>
+        <property expression="get-property('ERROR_EXCEPTION')" name="exception"/>
+    </log>
+</sequence>

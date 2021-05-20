@@ -1,0 +1,204 @@
+{
+  "connectorName": "email",
+  "operationName": "list",
+  "title": "List Emails",
+  "help": "<h1>List Emails</h1> <b>The list operation lists emails in a specific mailbox.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "IMAP",
+                "IMAPS",
+                "POP3",
+                "POP3S"
+              ],
+              "defaultType": "connection.imap",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "folder",
+                    "displayName": "Mailbox Folder",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "Inbox",
+                    "required": "false",
+                    "helpTip": "Name of the Mailbox folder to retrieve emails from"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "deleteAfterRetrieve",
+                    "displayName": "Delete After Retrieve",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "false",
+                    "required": "true",
+                    "helpTip": "Whether the email should be deleted after retrieving"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "offset",
+                    "displayName": "Offset",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "0",
+                    "required": "false",
+                    "helpTip": "The index from which to retrieve emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "limit",
+                    "displayName": "Limit",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "10",
+                    "required": "false",
+                    "helpTip": "The number of emails to be retrieved"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Advanced",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "receivedSince",
+                    "displayName": "Received Since",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The date after which to retrieve received emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "receivedUntil",
+                    "displayName": "Received Until",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The date until which to retrieve received emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "sentSince",
+                    "displayName": "Sent Since",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The date after which to retrieve sent emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "sentUntil",
+                    "displayName": "Sent Until",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The date until which to retrieve sent emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "subjectRegex",
+                    "displayName": "Subject Regex",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Subject Regex to match with the wanted emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "fromRegex",
+                    "displayName": "From Regex",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "From email address to match with the wanted emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "seen",
+                    "displayName": "Seen",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Whether to retrieve 'seen' or 'not seen' emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "answered",
+                    "displayName": "Answered",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Whether to retrieve 'answered' or 'unanswered' emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "deleted",
+                    "displayName": "Deleted",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Whether to retrieve 'deleted' or 'not deleted' emails"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "recent",
+                    "displayName": "Recent",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Whether to retrieve 'recent' or 'past' emails"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

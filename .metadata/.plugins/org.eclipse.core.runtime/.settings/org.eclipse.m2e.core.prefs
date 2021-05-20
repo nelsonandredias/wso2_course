@@ -1,0 +1,5 @@
+eclipse.m2.defaultRuntime=IntegrationStudioEmbedded
+eclipse.m2.runtimes=IntegrationStudioEmbedded
+eclipse.m2.runtimesNodes/IntegrationStudioEmbedded/location=C\:\\DevTools\\IntegrationStudio7.1.0\\apache-maven
+eclipse.m2.runtimesNodes/IntegrationStudioEmbedded/type=EXTERNAL
+eclipse.preferences.version=1

@@ -1,0 +1,50 @@
+<!--
+   Copyright (c) 2020, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<template xmlns="http://ws.apache.org/ns/synapse" name="list">
+	<parameter name="deleteAfterRetrieve" description="Whether the email should be deleted after retrieving"/>
+	<parameter name="receivedSince" description="The date after which to retrieve received emails"/>
+	<parameter name="receivedUntil" description="The date until which to retrieve received emails"/>
+	<parameter name="sentSince" description="The date after which to retrieve sent emails"/>
+	<parameter name="sentUntil" description="The date until which to retrieve sent emails"/>
+	<parameter name="subjectRegex" description="Subject Regex to match with the wanted emails"/>
+	<parameter name="fromRegex" description="From email address to match with the wanted emails"/>
+	<parameter name="seen" description="Whether to retrieve 'seen' or 'not seen' emails"/>
+	<parameter name="answered" description="Whether to retrieve 'answered' or 'unanswered' emails"/>
+	<parameter name="deleted" description="Whether to retrieve 'deleted' or 'not deleted' emails"/>
+	<parameter name="recent" description="Whether to retrieve 'recent' or 'past' emails"/>
+	<parameter name="offset" description="The index from which to retrieve emails"/>
+	<parameter name="limit" description="The number of emails to be retrieved"/>
+	<parameter name="folder" description="Name of the Mailbox folder to retrieve emails from"/>
+	<sequence>
+		<property name="deleteAfterRetrieve" expression="$func:deleteAfterRetrieve"/>
+		<property name="receivedSince" expression="$func:receivedSince"/>
+		<property name="receivedUntil" expression="$func:receivedUntil"/>
+		<property name="sentSince" expression="$func:sentSince"/>
+		<property name="sentUntil" expression="$func:sentUntil"/>
+		<property name="subjectRegex" expression="$func:subjectRegex"/>
+		<property name="fromRegex" expression="$func:fromRegex"/>
+		<property name="seen" expression="$func:seen"/>
+		<property name="answered" expression="$func:answered"/>
+		<property name="deleted" expression="$func:deleted"/>
+		<property name="recent" expression="$func:recent"/>
+		<property name="offset" expression="$func:offset"/>
+		<property name="limit" expression="$func:limit"/>
+		<property name="folder" expression="$func:folder"/>
+		<class name="org.wso2.carbon.connector.operations.EmailList" />
+	</sequence>
+</template>

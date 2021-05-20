@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api" name="PetsAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" url-mapping="/pets">
+        <inSequence>
+            <payloadFactory description="set payload" media-type="json">
+                <format>{&#xd;
+	"pet":{&#xd;
+		"name": "Kuky",&#xd;
+		"animal": "Dog"&#xd;
+	},&#xd;
+	"pet":{&#xd;
+		"name": "Kuky",&#xd;
+		"animal": "Cat"&#xd;
+	},&#xd;
+	"pet":{&#xd;
+		"name": "Star",&#xd;
+		"animal": "Cat"&#xd;
+	},&#xd;
+	"pet":{&#xd;
+		"name": "Gems",&#xd;
+		"animal": "Mouse"&#xd;
+	}&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <loopback/>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/pets/{name}">
+        <inSequence>
+            <payloadFactory description="set payload" media-type="json">
+                <format>{&#xd;
+	"pet":{&#xd;
+		"name": "Kuky",&#xd;
+		"animal": "Dog"&#xd;
+	},&#xd;
+	"pet":{&#xd;
+		"name": "Kuky",&#xd;
+		"animal": "Cat"&#xd;
+	}&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <loopback/>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/querydoctor/{category}">
+        <inSequence>
+            <log description="LOG WELCOME" level="custom">
+                <property name="LOG MESSAGE" value="WELCOME TO HEALTHCARE SERVICE"/>
+            </log>
+            <log description="LOG BEFORE" level="custom">
+                <property name="LOG MESSAGE" value="LOG BEFORE SEND"/>
+            </log>
+            <send>
+                <endpoint key="QueryDoctorEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond description="SEND OUT RESPONSE"/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/categories/{category}/reserve">
+        <inSequence>
+            <log description="LOG START" level="custom">
+                <property name="LOG MESSAGE" value="&quot;LOG RESERVATION START&quot;"/>
+            </log>
+            <property description="SET HOSPITAL" expression="json-eval($.hospital)" name="hospitalProperty" scope="default" type="STRING"/>
+            <datamapper config="gov:datamapper/RequestMapping.dmc" description="Format Message" inputSchema="gov:datamapper/RequestMapping_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/RequestMapping_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/RequestMapping_xsltStyleSheet.xml"/>
+            <switch source="$ctx:hospitalProperty">
+                <case regex="grand oak community hospital">
+                    <call-template description="HOSPITALROUTINGSQ1" target="HospitalRoutingSQ">
+                        <with-param name="setHospital" value="grandoaks"/>
+                    </call-template>
+                    <call>
+                        <endpoint key="GrandOakEP"/>
+                    </call>
+                </case>
+                <case regex="clemency medical center">
+                    <call-template description="HOSPITALROUTINGSQ2" target="HospitalRoutingSQ">
+                        <with-param name="setHospital" value="clemency"/>
+                    </call-template>
+                    <call>
+                        <endpoint key="ClemencyEP"/>
+                    </call>
+                </case>
+                <case regex="pine valley community hospital">
+                    <call-template description="HOSPITALROUTINGSQ3" target="HospitalRoutingSQ">
+                        <with-param name="setHospital" value="pinevalley"/>
+                    </call-template>
+                    <call>
+                        <endpoint key="PineValleyEP"/>
+                    </call>
+                </case>
+                <default>
+                    <log description="LOG DEFAULT" level="custom">
+                        <property expression="fn:concat('Invalid Hospital ', $ctx:hospitalProperty)" name="LOG MESSAGE"/>
+                    </log>
+                    <respond description="SEND OUT RESPONSE"/>
+                </default>
+            </switch>
+            <log description="LOG PAYLOAD RESPONSE" level="custom">
+                <property expression="json-eval($)" name="LOG MESSAGE"/>
+            </log>
+            <property description="GET DOCTOR DETAILS" expression="json-eval($.doctor)" name="doctorDetails" scope="default" type="STRING"/>
+            <property description="GET APPOINTMENT ID" expression="json-eval($.appointmentNumber)" name="uri.var.appointmentId" scope="default" type="STRING"/>
+            <property description="GET PATIENT DETAILS" expression="json-eval($.patient)" name="patientDetails" scope="default" type="STRING"/>
+            <call description="GET APPOINTMENT FEE">
+                <endpoint key="ChannelingEP"/>
+            </call>
+            <log description="LOG PAYLOAD RESPONSE" level="custom">
+                <property expression="json-eval($)" name="LOG MESSAGE"/>
+            </log>
+            <property description="GET ACTUAL FEE" expression="json-eval($.actualFee)" name="actualFee" scope="default" type="STRING"/>
+            <payloadFactory description="SET PAYLOAD MESSAGE" media-type="json">
+                <format>{&#xd;
+	"appointmentNumber": $1,&#xd;
+	"doctor": $2,&#xd;
+	"patient": $3,&#xd;
+	"fee": $4,&#xd;
+	"confirmed": "false",&#xd;
+	"cardNumber": "1234567890"&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:uri.var.appointmentId"/>
+                    <arg evaluator="xml" expression="$ctx:doctorDetails"/>
+                    <arg evaluator="xml" expression="$ctx:patientDetails"/>
+                    <arg evaluator="xml" expression="$ctx:actualFee"/>
+                </args>
+            </payloadFactory>
+            <store description="PUBLISH TO QUEUE" messageStore="PaymentRequestMS"/>
+            <payloadFactory description="SET RESPONSE PAYLOAD" media-type="json">
+                <format>{&#xd;
+	"message": "Payment Request published to myQueue. Confirmation will be sent via Email!"&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <respond description="SEND OUT RESPONSE"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

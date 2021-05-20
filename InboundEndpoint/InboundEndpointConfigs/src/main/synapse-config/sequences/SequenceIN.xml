@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SequenceIN" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG MESSAGE" level="custom">
+        <property name="LOG MESSAGE" value="SEQUENCE IN HAS BEEN EXECUTED"/>
+    </log>
+    <property description="SET PROPERTY" name="uri.var.wordIEP" scope="default" type="STRING" value="covid"/>
+    <send receive="SequenceOUT">
+        <endpoint key="DictionaryApiEP"/>
+    </send>
+</sequence>

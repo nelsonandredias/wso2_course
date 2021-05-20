@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\DevTools\IntegrationStudio7.1.0\jdk-home" version="1.8.0_252">
+<bootpath>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\resources.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\rt.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\sunrsasign.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\jsse.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\jce.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\charsets.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\jfr.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre" version="1.8.0_252">
+<bootpath>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\resources.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\rt.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\sunrsasign.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\jsse.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\jce.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\charsets.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\jfr.jar"/>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\DevTools\IntegrationStudio7.1.0\jdk-home\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

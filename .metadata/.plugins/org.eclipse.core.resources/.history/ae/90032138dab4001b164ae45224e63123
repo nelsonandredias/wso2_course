@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="ChannelingEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9090/{uri.var.hospital}/categories/appointments/{uri.var.appointmentId}/fee">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1.0</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+        </markForSuspension>
+    </http>
+</endpoint>

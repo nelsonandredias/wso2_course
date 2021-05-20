@@ -1,0 +1,2 @@
+https://localhost:9443 false null /_system/config
+https://localhost:9443 false null /_system/governance

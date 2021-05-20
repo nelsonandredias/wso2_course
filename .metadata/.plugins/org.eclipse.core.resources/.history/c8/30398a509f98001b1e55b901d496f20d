@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/employees" name="EmployeesAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" uri-template="/employee/{department}">
+        <inSequence>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+	"department": $1&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:uri.var.department"/>
+                </args>
+            </payloadFactory>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

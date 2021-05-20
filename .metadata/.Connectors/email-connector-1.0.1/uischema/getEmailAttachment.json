@@ -1,0 +1,46 @@
+{
+  "connectorName": "email",
+  "operationName": "getEmailAttachment",
+  "title": "Get Email Attachment",
+  "help": "<h1>Get Email Attachment</h1> <b>The get email attachment operation retrieves the attachment content of the respective index.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "emailIndex",
+                    "displayName": "Email Index",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Index of the email to be retrieved in the email response"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "attachmentIndex",
+                    "displayName": "Attachment Index",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Index of the attachment to be retrieved in the email response"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="PaymentRequestProcessingSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG START" level="custom">
+        <property name="LOG MESSAGE" value="LOG BEFORE SETTLE PAYMENT EP CALL"/>
+    </log>
+    <call>
+        <endpoint key="SettlePaymentEP"/>
+    </call>
+    <log description="LOG END" level="custom">
+        <property name="LOG MESSAGE" value="LOG AFTER SETTLE PAYMENT EP CALL"/>
+        <property expression="json-eval($)" name="LOG APPOINTMENT"/>
+    </log>
+    <payloadFactory media-type="json">
+        <format>{&#xd;
+    "from": "wso2test12345@gmail.com",&#xd;
+    "to": "wso2test12345@gmail.com",&#xd;
+    "subject": "Sample email",&#xd;
+    "content": "This is the body of the sample email",&#xd;
+    "contentType":"text/plain"&#xd;
+}</format>
+        <args/>
+    </payloadFactory>
+    <call>
+        <endpoint key="testEmailEP"/>
+    </call>
+    <drop/>
+</sequence>

@@ -1,0 +1,62 @@
+{
+  "connectorName": "email",
+  "operationName": "markAsRead",
+  "title": "Mark As Read",
+  "help": "<h1>Mark As Read</h1> <b>The Mark As Read operation marks the email with the relevant Email ID as read.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "IMAP",
+                "IMAPS"
+              ],
+              "defaultType": "connection.imap",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "folder",
+                    "displayName": "Mailbox Folder",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "Inbox",
+                    "required": "false",
+                    "helpTip": "Name of the Mailbox folder to retrieve emails from"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "emailID",
+                    "displayName": "Email ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Email ID Number of the email to mark as read"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

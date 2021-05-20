@@ -1,0 +1,187 @@
+{
+  "connectorName": "email",
+  "connectionName": "IMAP",
+  "title": "IMAP Connection",
+  "help": "<h1>Email Connector</h1> <b>The email connector supports IMAP, POP3 and SMTP protocols for handling emails</b>",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "connectionName",
+        "displayName": "Connection Name",
+        "inputType": "string",
+        "defaultValue": "EMAIL_CONNECTION_1",
+        "required": "true",
+        "helpTip": "The name for the email connection",
+        "validation": "nameWithoutSpecialCharactors"
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "host",
+                    "displayName": "Host",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Host name of the mail server"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "port",
+                    "displayName": "Port",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The port number of the mail server"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "username",
+                    "displayName": "Username",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Username used to connect with the mail server"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "password",
+                    "displayName": "Password",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Password to connect with the mail server"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Advanced",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "readTimeout",
+              "displayName": "Read Timeout",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"The socket read timeout value"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "connectionTimeout",
+              "displayName": "Connection Timeout",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"The socket connection timeout value"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "writeTimeout",
+              "displayName": "Write Timeout",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"The socket write timeout value"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "maxActiveConnections",
+              "displayName": "Max Active Connections",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"Maximum number of active connections in the pool"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "maxIdleConnections",
+              "displayName": "Max Idle Connections",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"Maximum number of idle connections in the pool"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "maxWaitTime",
+              "displayName": "Max Wait Time",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"Maximum time to wait for a pooled component to become available"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "minEvictionTime",
+              "displayName": "Min Eviction Time",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"The minimum amount of time an object may sit idle in the pool before it is eligible for eviction"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "evictionCheckInterval",
+              "displayName": "Eviction Check Interval",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"The number of milliseconds between runs of the object evictor"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "exhaustedAction",
+              "displayName": "Exhausted Action",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip":"The behavior of the pool when the pool is exhausted"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

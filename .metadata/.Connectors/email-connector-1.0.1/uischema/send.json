@@ -1,0 +1,169 @@
+{
+  "connectorName": "email",
+  "operationName": "send",
+  "title": "Send Email",
+  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "SMTP",
+                "SMTPS"
+              ],
+              "defaultType": "connection.smtp",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "from",
+                    "displayName": "From",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The 'From' address of the message sender"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "to",
+                    "displayName": "To",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The recipient addresses of 'To' (primary) type"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "cc",
+                    "displayName": "CC",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The recipient addresses of 'CC' (carbon copy) type"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "bcc",
+                    "displayName": "BCC",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The recipient addresses of 'BCC' (blind carbon copy) type"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "replyTo",
+                    "displayName": "Reply To",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The email addresses to which to reply to this email"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "subject",
+                    "displayName": "Subject",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The subject of the email"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "content",
+                    "displayName": "Content",
+                    "inputType": "textOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Body of the message in any format"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "attachments",
+                    "displayName": "Attachments",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma separated file paths of the attachments that are sent along with the email body"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Advanced",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "contentType",
+                    "displayName": "Content Type",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "text/html",
+                    "required": "false",
+                    "helpTip": "Content Type of the body"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "encoding",
+                    "displayName": "Encoding",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "UTF-8",
+                    "required": "false",
+                    "helpTip": "The character encoding of the body"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "contentTransferEncoding",
+                    "displayName": "Content Transfer Encoding",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "Base64",
+                    "required": "false",
+                    "helpTip": "Encoding used to indicate the type of transformation that is used to represent the body in an acceptable manner for transport"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

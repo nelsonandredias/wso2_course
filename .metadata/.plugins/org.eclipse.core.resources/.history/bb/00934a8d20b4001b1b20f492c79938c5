@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/email" name="EmailAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/send">
+        <inSequence>
+            <log description="LOG START" level="custom">
+                <property name="LOG MESSAGE" value="LOG START SEND"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

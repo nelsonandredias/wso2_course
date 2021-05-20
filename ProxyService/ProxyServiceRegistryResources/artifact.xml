@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="sample_proxy_1_wsdl" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseIntegrator">
+        <item>
+            <file>sample_proxy_1.wsdl</file>
+            <path>/_system/governance/custom</path>
+            <mediaType>application/wsdl+xml</mediaType>
+        </item>
+    </artifact>
+</artifacts>

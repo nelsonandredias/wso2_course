@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/station" name="StationAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <log description="LOG START" level="custom">
+                <property name="LOG MESSAGE" value="STATION MAIN LOG START"/>
+            </log>
+            <clone id="aggregate1">
+                <target>
+                    <endpoint key="Station1EP"/>
+                </target>
+                <target>
+                    <endpoint key="Station2EP"/>
+                </target>
+                <target>
+                    <endpoint key="Station3EP"/>
+                </target>
+            </clone>
+        </inSequence>
+        <outSequence>
+            <property description="SET AGGREGATED RESPONSE" name="Aggregated_Responses" scope="default">
+                <value xmlns=""/>
+            </property>
+            <aggregate id="aggregate1">
+                <correlateOn expression="json-eval($)"/>
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete aggregateElementType="root" enclosingElementProperty="Aggregated_Responses" expression="json-eval($.station.short_name)">
+                    <log description="LOG AGGREGATE" level="full">
+                        <property expression="$ctx:Aggregated_Responses" name="AGGREGATED STATIONS =======>"/>
+                    </log>
+                    <respond description="SEND OUT RESPONSE"/>
+                </onComplete>
+            </aggregate>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

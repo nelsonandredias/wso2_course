@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SequenceOUT" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG MESSAGE" level="custom">
+        <property name="LOG MESSAGE" value="SEQUENCE OUT HAS BEEN EXECUTED"/>
+    </log>
+    <send/>
+</sequence>

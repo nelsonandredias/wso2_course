@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="PaymentRequestProcessingSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property description="SET EMAIL" expression="$ctx:patientDetails.email" name="email" scope="default" type="STRING"/>
+    <log description="LOG EMAIL" level="custom">
+        <property expression="$ctx:email" name="LOG EMAIL"/>
+    </log>
+    <log description="LOG START" level="custom">
+        <property name="LOG MESSAGE" value="LOG BEFORE SETTLE PAYMENT EP CALL"/>
+    </log>
+    <call>
+        <endpoint key="SettlePaymentEP"/>
+    </call>
+    <log description="LOG END" level="custom">
+        <property name="LOG MESSAGE" value="LOG AFTER SETTLE PAYMENT EP CALL"/>
+        <property expression="json-eval($)" name="LOG APPOINTMENT"/>
+    </log>
+    <payloadFactory media-type="json">
+        <format>{&#xd;
+    "from": $1,&#xd;
+    "to": $2,&#xd;
+    "subject": "Sample email",&#xd;
+    "content": $3,&#xd;
+    "contentType":"text/plain"&#xd;
+}</format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:email"/>
+            <arg evaluator="xml" expression="$ctx:email"/>
+        </args>
+    </payloadFactory>
+    <call>
+        <endpoint key="testEP"/>
+    </call>
+    <drop/>
+</sequence>

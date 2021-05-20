@@ -1,0 +1,3 @@
+1620408615849	Delete resource 'HealthcareProjectConfigs/src/main/synapse-config/message-stores/PaymentRequestMS.xml'
+1620408629155	Delete resource 'HealthcareProjectConfigs/src/main/synapse-config/sequences/test.xml'
+1620408636502	Delete resource 'HealthcareProjectConfigs/src/main/synapse-config/message-processors/TestMP.xml'

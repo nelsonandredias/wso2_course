@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="CustomProxyServiceStockQuoteService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <log description="LOG START" level="custom">
+                <property name="LOG MESSAGE" value="LOG START"/>
+            </log>
+            <send>
+                <endpoint key="SimpleStockQuote"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <log description="LOG END" level="custom">
+                <property name="LOG MESSAGE" value="LOG END"/>
+            </log>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+    <publishWSDL key="gov:custom/sample_proxy_1.wsdl" preservePolicy="true"/>
+</proxy>

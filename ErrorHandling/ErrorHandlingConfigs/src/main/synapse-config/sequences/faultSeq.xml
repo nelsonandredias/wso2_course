@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="faultSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence key="logErrorHandlerSeq"/>
+    <payloadFactory description="SET ERROR PAYLOAD" media-type="json">
+        <format>{&#xd;
+	"error":{&#xd;
+		"message": $1,&#xd;
+		"detail": $2,&#xd;
+		"exception": $3&#xd;
+	}&#xd;
+}</format>
+        <args>
+            <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+            <arg evaluator="xml" expression="get-property('ERROR_DETAIL')"/>
+            <arg evaluator="xml" expression="get-property('ERROR_EXCEPTION')"/>
+        </args>
+    </payloadFactory>
+    <property description="SET HTTP STATUS CODE BAD REQUEST" name="HTTP_SC" scope="axis2" type="STRING" value="404"/>
+    <respond description="SEND ERROR MESSAGE"/>
+</sequence>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/orders" name="EcommerceAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <log description="LOG MESSAGE" level="custom">
+                <property name="LOG MESSAGE" value="this is the default resource"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/month/{currentMonth}?*">
+        <inSequence>
+            <!--This is generated API skeleton.-->
+            <log description="LOG MESSAGE">
+                <property expression="$ctx:uri.var.currentMoth" name="LOG MONTH"/>
+                <property expression="$ctx:query.param.minday" name="LOG MINDAY"/>
+                <property expression="$ctx:query.param.maxday" name="LOG MAXDAY"/>
+            </log>
+            <property expression="get-property('uri.var.currentMonth')" name="currentMonth" scope="default" type="STRING"/>
+            <!--Business Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+	"month": $1,&#xd;
+	"minday": $2,&#xd;
+	"maxday": $3,&#xd;
+	"totalOrders": 250&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:uri.var.currentMonth"/>
+                    <arg evaluator="xml" expression="$ctx:query.param.minday"/>
+                    <arg evaluator="xml" expression="$ctx:query.param.maxday"/>
+                </args>
+            </payloadFactory>
+            <loopback/>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/list">
+        <inSequence>
+            <log description="LOG MESSAGE" level="full"/>
+            <payloadFactory description="SET PAYLOAD" media-type="json">
+                <format>{&#xd;
+	"orders":{&#xd;
+		"order":{&#xd;
+			"country": "Portugal",&#xd;
+			"total":  394&#xd;
+		},&#xd;
+		"order":{&#xd;
+			"country": "Spain",&#xd;
+			"total":  212&#xd;
+		},&#xd;
+		"order":{&#xd;
+			"country": "Brazil",&#xd;
+			"total":  690&#xd;
+		}&#xd;
+	}&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <loopback/>
+        </inSequence>
+        <outSequence>
+            <respond description="SEND OUT"/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

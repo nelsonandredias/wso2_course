@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" uri-template="/weather/{country}/{city}">
+        <inSequence>
+            <log description="LOG START" level="custom">
+                <property name="LOG MESSAGE" value="LOG START API"/>
+            </log>
+            <payloadFactory description="SET PAYLOAD" media-type="json">
+                <format>{&#xd;
+	"country": $1,&#xd;
+	"city": $2,&#xd;
+	"weather": "sunny"&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:uri.var.country"/>
+                    <arg evaluator="xml" expression="$ctx:uri.var.city"/>
+                </args>
+            </payloadFactory>
+            <log description="LOG END" level="custom">
+                <property name="LOG MESSAGE" value="LOG END API"/>
+            </log>
+            <loopback/>
+        </inSequence>
+        <outSequence>
+            <respond description="SEND RESPONSE"/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

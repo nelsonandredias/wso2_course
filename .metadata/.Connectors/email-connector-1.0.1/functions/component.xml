@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (c) 2020, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<component name="functions" type="synapse/template" >
+    <subComponents>
+		<component name="list" >
+			<file>list.xml</file>
+			<description>List all the emails.</description>
+		</component>
+		<component name="expungeFolder" >
+			<file>expungeFolder.xml</file>
+			<description>Delete all the messages scheduled for deletion with the DELETED flag set from the mailbox.</description>
+		</component>
+		<component name="markAsDeleted" >
+			<file>markAsDeleted.xml</file>
+			<description>Mark an incoming email as DELETED. Not physically deleted, only a state change.</description>
+		</component>
+		<component name="markAsRead" >
+			<file>markAsRead.xml</file>
+			<description>Marks a single email as READ changing its state in the specified mailbox folder.</description>
+		</component>
+		<component name="send" >
+			<file>send.xml</file>
+			<description>Sends an email message.</description>
+		</component>
+		<component name="delete" >
+			<file>delete.xml</file>
+			<description>Deletes an email.</description>
+		</component>
+		<component name="getEmailBody" >
+			<file>getEmailBody.xml</file>
+			<description>Retrieves email body by index.</description>
+		</component>
+		<component name="getEmailAttachment" >
+			<file>getEmailAttachment.xml</file>
+			<description>Retrieves email attachment by index.</description>
+		</component>
+    </subComponents>    
+</component>

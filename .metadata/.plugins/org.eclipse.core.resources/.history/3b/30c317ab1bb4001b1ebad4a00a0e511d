@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/station3" name="Station3API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <log description="LOG START" level="custom">
+                <property name="LOG MESSAGE" value="STATION 3 LOG START"/>
+            </log>
+            <payloadFactory description="SET PAYLOAD" media-type="json">
+                <format>{&#xd;
+	"station":{&#xd;
+		"short_name": "St3",&#xd;
+		"name": "Station 3",&#xd;
+		"no_of_launches": 500&#xd;
+	}&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <respond description="SEND OUT RESPONSE"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

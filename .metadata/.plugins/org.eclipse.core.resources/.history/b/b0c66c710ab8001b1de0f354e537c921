@@ -1,0 +1,65 @@
+<data transports="" serviceGroup="" serviceNamespace="" name="RDBMSDataService">
+  <description>mariadb data service example</description>
+  <config id="mariaDB">
+    <property name="driverClassName">com.mysql.jdbc.Driver</property>
+    <property name="url">jdbc:mysql://localhost:3306/wso2_course</property>
+    <property name="username">root</property>
+    <property name="password">admin</property>
+  </config>
+  <resource method="GET" path="/employees">
+    <description>get all data from employees</description>
+    <call-query href="GetAllEmployeesDetails" />
+  </resource>
+  <resource method="GET" path="/employees/{EmployeeNumberIP}">
+    <description>get employee details based on ID</description>
+    <call-query href="GetEmployeeInfo">
+      <with-param name="EmployeeNumberIP" query-param="EmployeeNumberIP" />
+    </call-query>
+  </resource>
+  <resource method="POST" path="/employees">
+    <description>add new employee</description>
+    <call-query href="AddEmployee">
+      <with-param name="EmployeeNumber" query-param="EmployeeNumber" />
+      <with-param name=" FirstName" query-param=" FirstName" />
+      <with-param name=" LastName" query-param=" LastName" />
+      <with-param name=" Email" query-param=" Email" />
+      <with-param name=" Salary" query-param=" Salary" />
+    </call-query>
+  </resource>
+  <query id="GetAllEmployeesDetails" useConfig="mariaDB">
+    <sql>select EmployeeNumber, FirstName, LastName, Email, Salary from Employees</sql>
+    <result outputType="json">{
+  "Employees": {
+   "Employee": [
+     {
+        "EmployeeNumber": "$EmployeeNumber",
+         "FirstName": "$FirstName",
+         "LastName": "$LastName",
+         "Email": "$Email",
+         "SalaryCustom": "$Salary"
+     }
+   ]
+  }
+}</result>
+  </query>
+  <query id="GetEmployeeInfo" useConfig="mariaDB">
+    <sql>select EmployeeNumber, FirstName, LastName, Email, Salary from Employees where EmployeeNumber = :EmployeeNumberIP</sql>
+    <param type="IN" name="EmployeeNumberIP" paramType="SCALAR" sqlType="STRING" optional="false" />
+    <result element="Employees">
+      <element name="EmployeeNumber" column="EmployeeNumber" xsdType="string" />
+      <element name="FirstName" column="FirstName" xsdType="string" />
+      <element name="LastName" column="LastName" xsdType="string" />
+      <element name="Email" column="Email" xsdType="string" />
+      <element name="Salary" column="Salary" xsdType="string" />
+    </result>
+  </query>
+  <query id="AddEmployee" useConfig="mariaDB">
+    <sql>insert into Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values (:EmployeeNumber, :FirstName, :LastName, :Email, :Salary)</sql>
+    <param name="EmployeeNumber" paramType="SCALAR" sqlType="STRING" />
+    <param name=" FirstName" paramType="SCALAR" sqlType="STRING" />
+    <param name=" LastName" paramType="SCALAR" sqlType="STRING" />
+    <param name=" Email" paramType="SCALAR" sqlType="STRING" />
+    <param name=" Salary" paramType="SCALAR" sqlType="STRING" />
+    <result outputType="json"> {"message": "new employee added to table"}</result>
+  </query>
+</data>

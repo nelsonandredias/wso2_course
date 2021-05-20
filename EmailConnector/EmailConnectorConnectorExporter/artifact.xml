@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="email-connector" groupId="com.example.lib" version="1.0.1" type="synapse/lib" serverRole="EnterpriseServiceBus">
+        <file>email-connector-1.0.1.zip</file>
+    </artifact>
+</artifacts>

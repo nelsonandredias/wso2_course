@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="CSVDataFileProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG CSV FILE CONTENT" level="full"/>
+</sequence>

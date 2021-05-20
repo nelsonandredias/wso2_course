@@ -1,0 +1,13 @@
+{
+	"patient": {
+		"name": "Nelson Dias",
+		"dob": "1940-03-19",
+		"ssn": "234-23-525",
+		"address": "Lisbon",
+		"phone": "8770586755",
+		"email": "nelson.dias@wso2.com"
+	},
+	"doctor": "thomas collins",
+	"hospital": "grand oak community hospital",
+	"appointment_date": "2025-04-02"
+}

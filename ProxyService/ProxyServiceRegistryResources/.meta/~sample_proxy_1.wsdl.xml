@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><resource name="sample_proxy_1.wsdl" isCollection="false" path="/_system/governance/custom/ProxyServiceRegistryResources/sample_proxy_1.wsdl" registryUrl="https://localhost:9443/registry" status="added">
+    <mediaType>application/wsdl+xml</mediaType>
+</resource>

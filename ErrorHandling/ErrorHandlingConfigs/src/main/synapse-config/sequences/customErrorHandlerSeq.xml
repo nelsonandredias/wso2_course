@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="customErrorHandlerSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence key="logErrorHandlerSeq"/>
+    <makefault description="CUSTOM FAULT MESSAGE" version="soap11">
+        <code value="soap11Env:Server" xmlns:soap11Env="http://schemas.xmlsoap.org/soap/envelope/"/>
+        <reason value="Wrong Gender"/>
+        <role>WSO2</role>
+        <detail>Wrong Gender. Try with Female!!!</detail>
+    </makefault>
+    <log description="LOG FAULT MESSAGE" level="custom">
+        <property expression="$body" name="LOG FAULT MESSAGE"/>
+    </log>
+    <payloadFactory description="SET ERRO PAYLOAD" media-type="json">
+        <format>{&#xd;
+	"stacktrace": $1&#xd;
+}</format>
+        <args>
+            <arg evaluator="xml" expression="$body"/>
+        </args>
+    </payloadFactory>
+    <respond description="SEND OUT ERROR MESSAGE"/>
+</sequence>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api" name="DictionaryAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" uri-template="/dictionary/{word}">
+        <inSequence>
+            <log description="LOG MESSAGE" level="custom">
+                <property expression="$ctx:uri.var.word" name="LOG MESSAGE"/>
+            </log>
+            <property description="SET PROPERTY" expression="$ctx:uri.var.word" name="wordProperty" scope="default" type="STRING"/>
+            <payloadFactory description="SET PAYLOAD" media-type="json">
+                <format>{&#xd;
+	"word": $1&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:wordProperty"/>
+                </args>
+            </payloadFactory>
+            <loopback/>
+        </inSequence>
+        <outSequence>
+            <respond description="SEND OUT RESPONSE"/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

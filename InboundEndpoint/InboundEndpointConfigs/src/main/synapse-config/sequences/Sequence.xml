@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="Sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG MESSAGE" level="custom">
+        <property name="LOG MESSAGE" value="THIS SEQUENCE HAS BEEN EXECUTED"/>
+    </log>
+</sequence>

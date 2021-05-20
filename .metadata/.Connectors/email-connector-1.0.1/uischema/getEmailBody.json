@@ -1,0 +1,35 @@
+{
+  "connectorName": "email",
+  "operationName": "getEmailBody",
+  "title": "Get Email Body",
+  "help": "<h1>Get Email Body</h1> <b>The get email body operation retrieves the email message content of the respective index.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "emailIndex",
+                    "displayName": "Email Index",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Index of the email to be retrieved in the email response"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

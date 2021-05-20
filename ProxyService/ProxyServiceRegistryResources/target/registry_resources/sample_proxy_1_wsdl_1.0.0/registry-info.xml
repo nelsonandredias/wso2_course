@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <item>
+        <file>sample_proxy_1.wsdl</file>
+        <path>/_system/governance/custom</path>
+        <mediaType>application/wsdl+xml</mediaType>
+    </item>
+</resources>

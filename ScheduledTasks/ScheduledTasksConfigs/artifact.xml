@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="WeatherAPI" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/WeatherAPI.xml</file>
+    </artifact>
+    <artifact name="WeatherApiEP" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/WeatherApiEP.xml</file>
+    </artifact>
+    <artifact name="CustomWeatherApiProxy" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/CustomWeatherApiProxy.xml</file>
+    </artifact>
+    <artifact name="InjectRequestWeatherApiTask" groupId="com.example.task" version="1.0.0" type="synapse/task" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/tasks/InjectRequestWeatherApiTask.xml</file>
+    </artifact>
+</artifacts>

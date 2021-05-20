@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (c) 2020, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<template name="init" onError="fault" xmlns="http://ws.apache.org/ns/synapse">
+	<parameter name="host" description="Host name of the mail server"/>
+	<parameter name="port" description="The port number of the mail server"/>
+	<parameter name="name" description="Unique name the connection is identified by"/>
+	<parameter name="username" description="Username used to connect with the mail server"/>
+	<parameter name="password" description="Password to connect with the mail server"/>
+	<parameter name="connectionType" description="Email connection type (protocol) that should be used to establish the connection with the server"/>
+	<parameter name="readTimeout" description="The socket read timeout value"/>
+	<parameter name="connectionTimeout" description="The socket connection timeout value"/>
+	<parameter name="writeTimeout" description="The socket write timeout value"/>
+	<parameter name="requireTLS" description="Whether the connection should be established using TLS"/>
+	<parameter name="checkServerIdentity" description="Whether server identity should be checked"/>
+	<parameter name="trustedHosts" description="Comma separated string of trust host names"/>
+	<parameter name="sslProtocols" description="Comma separated string of SSL protocol"/>
+	<parameter name="cipherSuites" description="Comma separated string of Cipher Suites"/>
+	<parameter name="maxActiveConnections" description="Maximum number of active connections in the pool"/>
+	<parameter name="maxIdleConnections" description="Maximum number of idle connections in the pool"/>
+	<parameter name="maxWaitTime" description="Maximum time to wait for a pooled component to become available"/>
+	<parameter name="minEvictionTime" description="The minimum amount of time an object may sit idle in the pool before it is eligible for eviction"/>
+	<parameter name="evictionCheckInterval" description="The number of milliseconds between runs of the object evictor"/>
+	<parameter name="exhaustedAction" description="The behavior of the pool when the pool is exhausted."/>
+	<parameter name="requireAuthentication" description="Whether authentication is required for SMTP server."/>
+	<sequence>
+		<property name="host" expression="$func:host"/>
+		<property name="port" expression="$func:port"/>
+		<property name="name" expression="$func:name"/>
+		<property name="username" expression="$func:username"/>
+		<property name="password" expression="$func:password"/>
+		<property name="protocol" expression="$func:protocol"/>
+		<property name="readTimeout" expression="$func:readTimeout"/>
+		<property name="connectionTimeout" expression="$func:connectionTimeout"/>
+		<property name="writeTimeout" expression="$func:writeTimeout"/>
+		<property name="requireTLS" expression="$func:requireTLS"/>
+		<property name="checkServerIdentity" expression="$func:checkServerIdentity"/>
+		<property name="trustedHosts" expression="$func:trustedHosts"/>
+		<property name="sslProtocols" expression="$func:sslProtocols"/>
+		<property name="cipherSuites" expression="$func:cipherSuites"/>
+		<property name="maxActiveConnections" expression="$func:maxActiveConnections"/>
+		<property name="maxIdleConnections" expression="$func:maxIdleConnections"/>
+		<property name="maxWaitTime" expression="$func:maxWaitTime"/>
+		<property name="minEvictionTime" expression="$func:minEvictionTime"/>
+		<property name="evictionCheckInterval" expression="$func:evictionCheckInterval"/>
+		<property name="exhaustedAction" expression="$func:exhaustedAction"/>
+		<property name="requireAuthentication" expression="$func:requireAuthentication"/>
+		<class name="org.wso2.carbon.connector.operations.EmailConfig" />
+	</sequence>
+</template>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="JSONDataFileProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG JSON FILE CONTENT" level="full"/>
+    <log description="LOG MESSAGE" level="custom">
+        <property expression="json-eval($.id)" name="LOG ID"/>
+    </log>
+</sequence>

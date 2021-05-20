@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="CustomWeatherApiProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property description="SET COUNTRY PROXY" expression="//request/location/country" name="uri.var.countryProxy" scope="default" type="STRING"/>
+            <property description="SET CITY PROXY" expression="//request/location/city" name="uri.var.cityProxy" scope="default" type="STRING"/>
+            <log description="LOG LOCATION" level="custom">
+                <property expression="$ctx:uri.var.countryProxy" name="LOG COUNTRY"/>
+                <property expression="$ctx:uri.var.cityProxy" name="LOG CITY"/>
+            </log>
+            <send>
+                <endpoint key="WeatherApiEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <log description="LOG OUTPUT" level="full"/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

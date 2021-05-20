@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="XMLDataFileProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG XML FILE CONTENT" level="full"/>
+    <log description="LOG MESSAGE" level="custom">
+        <property expression="$body//orders//order//country" name="LOG COUNTRY"/>
+    </log>
+</sequence>
